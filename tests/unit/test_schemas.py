@@ -1,11 +1,12 @@
 """Unit tests for event schema models."""
 
 import pytest
+
 from event_pipeline.schemas import (
-    EventType,
     ApiUsageEvent,
-    UserSignupEvent,
     DLQEvent,
+    EventType,
+    UserSignupEvent,
     deserialise,
     serialise,
 )

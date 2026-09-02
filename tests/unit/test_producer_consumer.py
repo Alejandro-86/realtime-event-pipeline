@@ -1,16 +1,13 @@
 """Unit tests for producer and consumer using in-memory stubs."""
 
-import pytest
+from event_pipeline.consumer.consumer import EventConsumer, ProcessingResult
+from event_pipeline.producer.producer import EventProducer
 from event_pipeline.schemas import (
     ApiUsageEvent,
-    UserSignupEvent,
-    DLQEvent,
     EventType,
+    UserSignupEvent,
     serialise,
 )
-from event_pipeline.producer.producer import EventProducer
-from event_pipeline.consumer.consumer import EventConsumer, ProcessingResult
-
 
 # ─── Stub Kafka producer ──────────────────────────────────────────────────────
 

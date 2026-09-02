@@ -1,6 +1,5 @@
 """Kafka event producer — serialises typed events and delivers to a topic."""
 
-import logging
 from typing import Any
 
 import structlog

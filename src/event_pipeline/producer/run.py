@@ -1,8 +1,8 @@
 """Producer entry point — generates sample events for demonstration."""
 
-import time
-import random
 import logging
+import random
+import time
 
 from confluent_kafka import Producer
 

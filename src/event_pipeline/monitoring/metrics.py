@@ -7,7 +7,7 @@ Exposes three metric families:
   - dlq_total         — Counter, labelled by event_type and reason
 """
 
-from prometheus_client import Counter, Histogram, CollectorRegistry
+from prometheus_client import CollectorRegistry, Counter, Histogram
 
 
 class PipelineMetrics:

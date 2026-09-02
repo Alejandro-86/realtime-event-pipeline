@@ -2,7 +2,6 @@
 
 import logging
 import signal
-import sys
 
 from confluent_kafka import Consumer, Producer
 

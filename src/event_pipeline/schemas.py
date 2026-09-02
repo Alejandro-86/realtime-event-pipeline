@@ -7,11 +7,10 @@ cannot be parsed are routed to the dead-letter queue.
 
 import json
 import uuid
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from enum import StrEnum
-from typing import Annotated, Union
 
-from pydantic import BaseModel, EmailStr, field_validator, Field
+from pydantic import BaseModel, EmailStr, Field, field_validator
 
 
 class EventType(StrEnum):
@@ -34,7 +33,7 @@ class BaseEvent(BaseModel):
     event_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     event_type: EventType
     timestamp: datetime = Field(
-        default_factory=lambda: datetime.now(timezone.utc)
+        default_factory=lambda: datetime.now(UTC)
     )
 
 
@@ -106,7 +105,7 @@ class DLQEvent(BaseEvent):
         return v
 
 
-AnyEvent = Union[ApiUsageEvent, UserSignupEvent, DLQEvent]
+AnyEvent = ApiUsageEvent | UserSignupEvent | DLQEvent
 
 _TYPE_MAP: dict[str, type[AnyEvent]] = {
     EventType.API_USAGE:   ApiUsageEvent,

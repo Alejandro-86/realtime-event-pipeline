@@ -7,8 +7,7 @@ Processing flow:
   4. On failure: retry up to max_retries, then route to DLQ topic
 """
 
-import logging
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from typing import Any
 
 import structlog
@@ -16,11 +15,9 @@ import structlog
 from event_pipeline.schemas import (
     AnyEvent,
     ApiUsageEvent,
-    DLQEvent,
     EventType,
     UserSignupEvent,
     deserialise,
-    serialise,
 )
 
 logger = structlog.get_logger(__name__)

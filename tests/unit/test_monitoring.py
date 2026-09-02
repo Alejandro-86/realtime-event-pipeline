@@ -1,6 +1,7 @@
 """Unit tests for Prometheus metrics."""
 
 import pytest
+
 from event_pipeline.monitoring.metrics import PipelineMetrics
 
 
