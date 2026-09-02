@@ -24,6 +24,7 @@ def main() -> None:
     try:
         counter = 0
         while True:
+            event: UserSignupEvent | ApiUsageEvent
             if counter % 10 == 0:
                 event = UserSignupEvent(
                     user_id=f"user-{counter}",
